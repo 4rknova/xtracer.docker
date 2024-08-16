@@ -3,7 +3,7 @@
 # https://wiki.alpinelinux.org/wiki/Running_glibc_programs
 
 # Stage 1: Build Xtracer
-FROM alpine:3.18 as build
+FROM alpine:3.18 AS build
 
 # Setup build environment
 WORKDIR /tmp/build
@@ -18,7 +18,7 @@ RUN cmake .
 RUN make
 
 # Stage 2: Build Xtracer server (golang)
-FROM golang:1.22 as build_service
+FROM golang:1.22 AS build_service
 # Assumes the go service is in the same directory as the Dockerfile
 ADD . /app 
 WORKDIR /app

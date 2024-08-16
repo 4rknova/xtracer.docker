@@ -1,0 +1,9 @@
+name: PR
+on: pull_request
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Docker
+        run: make ci-docker-build
